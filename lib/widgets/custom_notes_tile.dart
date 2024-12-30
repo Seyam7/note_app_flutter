@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:notes_app/screens/create_update_note_page.dart';
 
 class CustomNotesTile extends StatelessWidget {
-  final int index;
+  final int index;//for delete and update
 
   const CustomNotesTile({
     super.key,
@@ -23,12 +23,12 @@ class CustomNotesTile extends StatelessWidget {
       ),
       child: ListTile(
         onTap: (){
-          print(index);
-          Get.to(()=> CreateUpdateNotePage(note: note,));//when we will edit
+          print(index);//just for check
+          Get.to(()=> CreateUpdateNotePage(note: note, index: index,));//when we will edit
         },
         contentPadding: EdgeInsets.fromLTRB(10, 10, 0, 10),
         title: Text(
-          note.titel,
+          note.title,
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
         ),
         subtitle: Column(
@@ -54,7 +54,7 @@ class CustomNotesTile extends StatelessWidget {
                 ),
                 if(note.updatedAt!=null)
                   Text(
-                    'Updated at: ${note.updatedAt!.day}/${note.updatedAt!.month}/${note.updatedAt!.year}updatedAt',
+                    'Updated at: ${note.updatedAt!.day}/${note.updatedAt!.month}/${note.updatedAt!.year}',
                     style: TextStyle(
                       fontSize: 10,
                       color: Colors.black.withOpacity(.5),
@@ -67,7 +67,6 @@ class CustomNotesTile extends StatelessWidget {
         trailing: IconButton(
           onPressed: (){
             controller.deleteNote(index);
-
           },
           icon: Icon(Icons.delete,color: Colors.black.withOpacity(.7),),
         ),

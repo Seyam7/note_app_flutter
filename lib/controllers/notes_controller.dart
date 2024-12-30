@@ -20,7 +20,7 @@ class NotesController extends GetxController{
     }
     notes.add(
         NoteModel(
-            titel: titleController.text,
+            title: titleController.text,
             description: descriptionController.text,
             createdAt: DateTime.now(),
         ),
@@ -37,5 +37,18 @@ class NotesController extends GetxController{
       'The note has been deleted.',
       snackPosition: SnackPosition.BOTTOM,
     );
+  }
+  updateNote(int index){
+    // Update note at the specified index
+    notes[index!] = NoteModel(
+      title: titleController.text,
+      description: descriptionController.text,
+      createdAt: notes[index!].createdAt, // Keep the original creation time
+      updatedAt: DateTime.now(),
+    );
+    update();
+    titleController.clear();
+    descriptionController.clear();
+    Get.back(); // Close the update screen/dialog
   }
 }

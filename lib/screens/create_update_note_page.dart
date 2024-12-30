@@ -5,9 +5,11 @@ import 'package:notes_app/models/note_model.dart';
 
 class CreateUpdateNotePage extends StatefulWidget {
   final NoteModel? note;
+  final int? index; // Index for the note being updated
   const CreateUpdateNotePage({
     super.key,
-    this.note,
+    this.note, this.index,
+
   });
 
   @override
@@ -21,7 +23,7 @@ class _CreateUpdateNotePageState extends State<CreateUpdateNotePage> {
   void initState() {
     super.initState();
     if(widget.note!=null){
-      controller.titleController.text=widget.note!.titel;
+      controller.titleController.text=widget.note!.title;
       controller.descriptionController.text=widget.note!.description;
     }
   }
@@ -44,7 +46,13 @@ class _CreateUpdateNotePageState extends State<CreateUpdateNotePage> {
         actions: [
           TextButton(
               onPressed: (){
-                controller.createNote();
+                if(controller.notes.isEmpty){
+                  controller.createNote();
+                }
+                else{
+                  controller.updateNote(widget.index!);
+                }
+
               },
               child: Icon(Icons.done, size: 30,color: Colors.black,),
           ),
