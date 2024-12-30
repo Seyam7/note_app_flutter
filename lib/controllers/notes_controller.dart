@@ -9,7 +9,7 @@ class NotesController extends GetxController{
   TextEditingController titleController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
 
-  createNote(){
+  void createNote(){
     if(titleController.text.isEmpty || descriptionController.text.isEmpty){
       Get.snackbar(
           'Error',

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:notes_app/controllers/notes_controller.dart';
 import 'package:get/get.dart';
 import 'package:notes_app/screens/create_update_note_page.dart';
@@ -24,7 +23,7 @@ class CustomNotesTile extends StatelessWidget {
       child: ListTile(
         onTap: (){
           print(index);//just for check
-          Get.to(()=> CreateUpdateNotePage(note: note, index: index,));//when we will edit
+          Get.to(()=> CreateUpdateNotePage(note: note,index: index,));//when we will edit
         },
         contentPadding: EdgeInsets.fromLTRB(10, 10, 0, 10),
         title: Text(

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:notes_app/controllers/notes_controller.dart';
 import 'package:notes_app/screens/create_update_note_page.dart';
 import 'package:notes_app/widgets/custom_notes_tile.dart';
@@ -55,7 +54,7 @@ class NotesPage extends StatelessWidget {
         },
         child: Icon(
           Icons.add,
-          color: Colors.blue,
+          color: Colors.yellow[700],
         ),
       ),
     );

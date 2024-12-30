@@ -8,8 +8,8 @@ class CreateUpdateNotePage extends StatefulWidget {
   final int? index; // Index for the note being updated
   const CreateUpdateNotePage({
     super.key,
-    this.note, this.index,
-
+    this.note,
+    this.index,
   });
 
   @override
@@ -27,6 +27,12 @@ class _CreateUpdateNotePageState extends State<CreateUpdateNotePage> {
       controller.descriptionController.text=widget.note!.description;
     }
   }
+  // @override
+  // void dispose() {
+  //   super.dispose();
+  //   controller.titleController.clear();
+  //   controller.descriptionController.clear();
+  // }
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(NotesController());
@@ -46,12 +52,12 @@ class _CreateUpdateNotePageState extends State<CreateUpdateNotePage> {
         actions: [
           TextButton(
               onPressed: (){
-                if(controller.notes.isEmpty){
+                if(widget.note==null){
                   controller.createNote();
                 }
-                else{
-                  controller.updateNote(widget.index!);
-                }
+                 else{
+                   controller.updateNote(widget.index!);
+                 }
 
               },
               child: Icon(Icons.done, size: 30,color: Colors.black,),
