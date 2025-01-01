@@ -17,7 +17,8 @@ class NotesPage extends StatelessWidget {
         backgroundColor: Colors.yellow[600],
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+            },
             icon: Icon(Icons.settings),
           ),
         ],
